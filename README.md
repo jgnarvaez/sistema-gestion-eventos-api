@@ -59,25 +59,25 @@ sistema-gestion-eventos-api/
 
 ## Configuración Paso a Paso de Base de Datos (MongoDB Atlas)
 
-Para garantizar la conexión correcta de la API con MongoDB en la nube, sigue estos pasos:
+Para garantizar la conexión correcta de la API con MongoDB en la nube, seguir estos pasos:
 
 1. **Crear usuario en la base de datos:**
-   - En el panel de MongoDB Atlas, ve a **Database Access** -> **Add New Database User**.
-   - Asigna un nombre de usuario (ej. `jgnarvaez_db_user`) y una contraseña segura.
-   - Otorga el rol de **Atlas Admin** o **Read and write to any database**.
+   - En el panel de MongoDB Atlas, ir a **Database Access** -> **Add New Database User**.
+   - Asignar un nombre de usuario y una contraseña segura.
+   - Otorgar el rol de **Atlas Admin** o **Read and write to any database**.
 
 2. **Habilitar acceso a la red (Network Access):**
-   - Ve a **Network Access** -> **Add IP Address**.
-   - Haz clic en **Allow Access from Anywhere** (`0.0.0.0/0`) para permitir conexiones desde cualquier ubicación/IP sin ser bloqueado.
-   - Haz clic en **Confirm** y espera a que el estado cambie a `Active`.
+   - Ir a **Network Access** -> **Add IP Address**.
+   - Hacer clic en **Allow Access from Anywhere** (`0.0.0.0/0`) para permitir conexiones desde cualquier ubicación/IP sin sufrir bloqueos.
+   - Hacer clic en **Confirm** y esperar a que el estado cambie a `Active`.
 
 3. **Configurar las Variables de Entorno (`.env`):**
-   - En la raíz de la carpeta `sistema-gestion-eventos-api`, crea/edita el archivo `.env` con la siguiente estructura:
+   - En la raíz de la carpeta `sistema-gestion-eventos-api`, crear o editar el archivo `.env` con la siguiente estructura:
    ```env
    PORT=3000
    MONGODB_URI=mongodb+srv://USUARIO:CONTRASEÑA@cluster0.XXXXX.mongodb.net/gestion_eventos_db?retryWrites=true&w=majority&appName=Cluster0
    ```
-   *(Reemplaza `USUARIO` y `CONTRASEÑA` por tus credenciales de Atlas).*
+   *(Reemplazar `USUARIO` y `CONTRASEÑA` por las credenciales asignadas en Atlas).*
 
 ---
 
