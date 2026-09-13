@@ -53,7 +53,31 @@ sistema-gestion-eventos-api/
 
 ## Requisitos Previos
 1. Tener instalado **Node.js** (v18 o superior).
-2. Tener ejecutándose **MongoDB** en puerto por defecto (`mongodb://127.0.0.1:27017`) o configurar la variable `MONGODB_URI` en el archivo `.env`.
+2. Contar con un cluster en **MongoDB Atlas** (Nube - Gratis) o una instancia local de MongoDB.
+
+---
+
+## Configuración Paso a Paso de Base de Datos (MongoDB Atlas)
+
+Para garantizar la conexión correcta de la API con MongoDB en la nube, sigue estos pasos:
+
+1. **Crear usuario en la base de datos:**
+   - En el panel de MongoDB Atlas, ve a **Database Access** -> **Add New Database User**.
+   - Asigna un nombre de usuario (ej. `jgnarvaez_db_user`) y una contraseña segura.
+   - Otorga el rol de **Atlas Admin** o **Read and write to any database**.
+
+2. **Habilitar acceso a la red (Network Access):**
+   - Ve a **Network Access** -> **Add IP Address**.
+   - Haz clic en **Allow Access from Anywhere** (`0.0.0.0/0`) para permitir conexiones desde cualquier ubicación/IP sin ser bloqueado.
+   - Haz clic en **Confirm** y espera a que el estado cambie a `Active`.
+
+3. **Configurar las Variables de Entorno (`.env`):**
+   - En la raíz de la carpeta `sistema-gestion-eventos-api`, crea/edita el archivo `.env` con la siguiente estructura:
+   ```env
+   PORT=3000
+   MONGODB_URI=mongodb+srv://USUARIO:CONTRASEÑA@cluster0.XXXXX.mongodb.net/gestion_eventos_db?retryWrites=true&w=majority&appName=Cluster0
+   ```
+   *(Reemplaza `USUARIO` y `CONTRASEÑA` por tus credenciales de Atlas).*
 
 ---
 
